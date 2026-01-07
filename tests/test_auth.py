@@ -4,17 +4,17 @@ import time
 import allure
 from pages.auth_page import AuthPage
 
-@allure.feature('Авторизация')
-@allure.story('Авторизация с корректными логином и паролем')
+# @allure.feature('Авторизация')
+# @allure.story('Авторизация с корректными логином и паролем')
+@allure.step("Testing auth page")
 def test_authorisation(web_browser,user_login="standard_user",
                        user_password="secret_sauce"):
     """Тестирование авторизации с использованием
     корректного логина и пароля"""
     page = AuthPage(web_browser)
-    # time.sleep(1)
+    # time.sleep(10)
 
     # вводим данные для логина и пароля
-    allure.step(f"ввод логина {user_login} и пароля {user_password}")
     page.username.send_keys(user_login)
     page.password.send_keys(user_password)
 
@@ -49,7 +49,6 @@ def test_negative_authorisation_wrong_pass(web_browser,user_login="standard_user
     page = AuthPage(web_browser)
     # time.sleep(1)
 
-    allure.step(f"ввод логина {user_login} и пароля {user_password}")
     # вводим данные для логина и пароля
     page.username.send_keys(user_login)
     page.password.send_keys(user_password)

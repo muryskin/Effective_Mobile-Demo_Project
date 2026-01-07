@@ -57,5 +57,4 @@ class AuthPage(WebPage):
     btn_add_to_cart = WebElement(xpath='//button[contains(@class,"btn btn_primary btn_small btn_inventory")]')
 
     # сообщение об ошибке при неудачной авторизации
-    # form_error = WebElement(xpath='//div[contains(@class,"error-message-container error"]')
     form_error = WebElement(xpath='//h3[@data-test="error"]')

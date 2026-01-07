@@ -8,6 +8,11 @@ import pytest
 import allure
 import uuid
 from selenium import webdriver
+import os
+from selenium.webdriver.chrome.options import Options
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", action="store", default="chrome")
 
 @pytest.fixture
 def chrome_options(chrome_options):
@@ -32,7 +37,17 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture
 def web_browser(request):
-    browser = webdriver.Chrome()
+    SELENIUM_REMOTE_URL = os.getenv("SELENIUM_REMOTE_URL", "http://0.0.0.0:4444/wd/hub")
+    # SELENIUM_REMOTE_URL = os.getenv("SELENIUM_REMOTE_URL", "http://localhost:4444/wd/hub")
+    # SELENIUM_REMOTE_URL = "http://localhost:4444"
+    # browser = webdriver.Chrome()
+
+    options = Options()
+
+    browser = webdriver.Remote(
+        command_executor=SELENIUM_REMOTE_URL,
+        options=options
+    )
     browser.set_window_size(1400, 1000)
 
     # Return browser instance to test case:
