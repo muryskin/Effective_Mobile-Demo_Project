@@ -1,7 +1,6 @@
 from pages.base import WebPage
 from pages.elements import WebElement, ManyWebElements
 
-
 class AuthPage(WebPage):
 
     def __init__(self, web_driver, url=''):
