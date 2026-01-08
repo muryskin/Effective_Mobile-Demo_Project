@@ -23,8 +23,6 @@
 
 ### Структура проекта:
 
-**conftest.py** - 
-
 **tests/test_auth.py** - авто-тесты для тестирования логина: <br>
 - test_authorisation - Авторизация с корректными логином и паролем
 - test_negative_authorisation_wrong_pass - Авторизация с корректными логином и неверным паролем
@@ -32,16 +30,26 @@
 - test_negative_authorisation_empty_data - Авторизация с пустыми полями логин и пароль
 - test_authorisation_glitch_user - Авторизация с корректным логином и паролем, с задержкой загрузки
 
-**pages/base.py** - 
+**pages/base.py** - базовые методы Page Object
 
-**pages/elements.py** - 
+**pages/elements.py** - методы для взаимодействия с элементами Page Object
 
-**pages/auth_page.py** - 
+**pages/auth_page.py** - элементы страницы авторизации
 
-**requirements.txt** - 
+**conftest.py** - файл конфигурации
 
-**Dockerfile** - 
+**requirements.txt** - зависимости
 
-**allure-results** - 
+**Dockerfile** - для запуска тестов в контейнере
 
-**allure-report** - 
+**allure-results** - allure-результаты проведенных авто-тестов
+
+**allure-report** - allute-отчеты по проведенным авто-тестам
+
+---
+
+### Использованное рабочее окружение:
+
+**Python**: 3.13.7
+
+**Platform**: macOS-12.7.6-x86_64-i386-64bit-Mach-O
