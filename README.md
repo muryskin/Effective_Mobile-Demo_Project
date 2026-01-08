@@ -37,10 +37,34 @@
 **pages/auth_page.py** - элементы страницы авторизации
 
 **conftest.py** - файл конфигурации
+- для запуска тестов в IDE раскомментировать строку
+> browser = webdriver.Chrome() <br>
+> или <br>
+> browser = webdriver.Firefox() <br>
+
+- для запуска тестов с использованием Докера раскомментировать строки
+> chrome_options = Options() <br>
+> chrome_options.add_argument("--no-sandbox") <br>
+> chrome_options.add_argument("--disable-dev-shm-usage") <br>
+> chrome_options.add_argument("--disable-gpu") <br>
+> chrome_options.add_argument("--disable-webrtc") <br>
+> chrome_options.add_argument("--hide-scrollbars") <br>
+> chrome_options.add_argument("--disable-notifications") <br>
+> chrome_options.add_argument("--start-maximized") <br>
+>
+> адрес сервера для запуска тестов в IDE с запущенным в Докере selenium/standalone-chrome сервером <br>
+> SELENIUM_REMOTE_URL = os.getenv("SELENIUM_REMOTE_URL", "http://localhost:4444/wd/hub") <br>
+> или <br>
+> адрес сервера для запуска тестов в Докере <br>
+> SELENIUM_REMOTE_URL = os.getenv("SELENIUM_REMOTE_URL", "http://host.docker.internal:4444/wd/hub") <br>
+>
+> browser = webdriver.Remote(command_executor=SELENIUM_REMOTE_URL,options=chrome_options) <br>
 
 **requirements.txt** - зависимости
 
-**Dockerfile** - для запуска тестов в контейнере
+**Dockerfile, docker-compose.yml** - файлы для запуска тестов в контейнере с использованием selenium/standalone-chrome сервера
+- запуск всех служб из docker-compose.yml (проложение для автотестов и selenium/standalone-chrome сервер)
+> docker compose up -d
 
 **allure-results** - allure-результаты проведенных авто-тестов
 
