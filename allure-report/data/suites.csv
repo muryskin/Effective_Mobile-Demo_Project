@@ -1,0 +1,11 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Тестирование авторизации с использованием
+корректного логина и неверного пароля","11600","test_negative_authorisation_wrong_pass","tests","2026-01-08","passed","2026-01-08","","test_auth","",""
+"Тестирование авторизации с использованием
+корректного логина и пароля","13308","test_authorisation","tests","2026-01-08","passed","2026-01-08","","test_auth","",""
+"Тестирование авторизации с использованием
+пустых полей логин и пароля","11209","test_negative_authorisation_empty_data","tests","2026-01-08","passed","2026-01-08","","test_auth","",""
+"Тестирование авторизации с использованием
+корректного логина и пароля, с задержкой загрузки","25925","test_authorisation_glitch_user","tests","2026-01-08","passed","2026-01-08","","test_auth","",""
+"Тестирование авторизации с использованием
+заблокированного логина и верного пароля","13444","test_negative_authorisation_locked_user","tests","2026-01-08","passed","2026-01-08","","test_auth","",""
