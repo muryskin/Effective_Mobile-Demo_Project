@@ -23,3 +23,25 @@
 
 ### Структура проекта:
 
+**conftest.py** - 
+
+**tests/test_auth.py** - авто-тесты для тестирования логина: <br>
+- test_authorisation - Авторизация с корректными логином и паролем
+- test_negative_authorisation_wrong_pass - Авторизация с корректными логином и неверным паролем
+- test_negative_authorisation_locked_user - Авторизация заблокированного логина
+- test_negative_authorisation_empty_data - Авторизация с пустыми полями логин и пароль
+- test_authorisation_glitch_user - Авторизация с корректным логином и паролем, с задержкой загрузки
+
+**pages/base.py** - 
+
+**pages/elements.py** - 
+
+**pages/auth_page.py** - 
+
+**requirements.txt** - 
+
+**Dockerfile** - 
+
+**allure-results** - 
+
+**allure-report** - 
