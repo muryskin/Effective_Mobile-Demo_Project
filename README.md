@@ -34,15 +34,15 @@
 
 **pages/elements.py** - методы для взаимодействия с элементами Page Object
 
-**pages/auth_page.py** - элементы страницы авторизации
+**pages/auth_page.py** - элементы страницы авторизации Page Object
 
 **conftest.py** - файл конфигурации
-- для запуска тестов в IDE раскомментировать строку
+- для запуска тестов в IDE раскомментировать строку:
 > browser = webdriver.Chrome() <br>
 > или <br>
 > browser = webdriver.Firefox() <br>
 
-- для запуска тестов с использованием Докера раскомментировать строки
+- для запуска тестов с использованием Докера раскомментировать строки:
 > chrome_options = Options() <br>
 > chrome_options.add_argument("--no-sandbox") <br>
 > chrome_options.add_argument("--disable-dev-shm-usage") <br>
@@ -63,7 +63,7 @@
 **requirements.txt** - зависимости
 
 **Dockerfile, docker-compose.yml** - файлы для запуска тестов в контейнере с использованием selenium/standalone-chrome сервера
-- запуск всех служб из docker-compose.yml (проложение для автотестов и selenium/standalone-chrome сервер)
+- запуск всех служб из docker-compose.yml (проложение для автотестов и selenium/standalone-chrome сервер):
 > docker compose up -d
 
 **allure-results** - allure-результаты проведенных авто-тестов
