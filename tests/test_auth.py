@@ -53,7 +53,6 @@ def test_authorisation(web_browser,user_login="standard_user",
     with allure.step("Проверка: Количество товаров в списке совпадает с количеством фотографий и количеством описаний товаров"):
         assert page.items_description.count() == page.items_img.count() == page.inventory_items.count()
 
-    page.close()
 
 @allure.feature('Авторизация')
 @allure.story('Авторизация с корректными логином и неверным паролем')
@@ -80,7 +79,6 @@ def test_negative_authorisation_wrong_pass(web_browser,user_login="standard_user
 
     with allure.step("Проверка: форма ошибки видима"):
         assert page.form_error.is_visible()
-    page.close()
 
 @allure.feature('Авторизация')
 @allure.story('Авторизация заблокированного логина')
@@ -107,7 +105,6 @@ def test_negative_authorisation_locked_user(web_browser,user_login="locked_out_u
 
     with allure.step("Проверка: форма ошибки видима"):
         assert page.form_error.is_visible()
-    page.close()
 
 @allure.feature('Авторизация')
 @allure.story('Авторизация с пустыми полями логин и пароль')
@@ -134,7 +131,6 @@ def test_negative_authorisation_empty_data(web_browser,user_login="",
 
     with allure.step("Проверка: форма ошибки видима"):
         assert page.form_error.is_visible()
-    page.close()
 
 @allure.feature('Авторизация')
 @allure.story('Авторизация с корректным логином и паролем, с задержкой загрузки')
@@ -185,5 +181,3 @@ def test_authorisation_glitch_user(web_browser,user_login="performance_glitch_us
 
     with allure.step("Проверка: Количество товаров в списке совпадает с количеством фотографий и количеством описаний товаров"):
         assert page.items_description.count() == page.items_img.count() == page.inventory_items.count()
-
-    page.close()
