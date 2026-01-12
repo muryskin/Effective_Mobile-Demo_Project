@@ -20,7 +20,7 @@ def test_authorisation(web_browser,user_login="standard_user",
     with allure.step("Нажатие кнопки 'Войти'"):
     # нажимаем кнопку "Войти"
         page.login_btn.click()
-        time.sleep(1)
+    # page.app_logo.wait_to_be_visible()
 
     with (allure.step("Проверка: текущая страница - 'All item'")):
     # проверяем, что текущая страница - это страница "All item"
@@ -71,7 +71,7 @@ def test_negative_authorisation_wrong_pass(web_browser,user_login="standard_user
     with allure.step("Нажатие кнопки 'Войти'"):
     # нажимаем кнопку "Войти"
         page.login_btn.click()
-    time.sleep(1)
+    # page.form_error.wait_to_be_visible()
 
     with allure.step("Проверка: текущая страница - не 'All item'"):
     # проверяем, что текущая страница - это не страница "All item"
@@ -97,7 +97,7 @@ def test_negative_authorisation_locked_user(web_browser,user_login="locked_out_u
     with allure.step("Нажатие кнопки 'Войти'"):
     # нажимаем кнопку "Войти"
         page.login_btn.click()
-    time.sleep(1)
+    # page.form_error.wait_to_be_visible()
 
     with allure.step("Проверка: текущая страница - не 'All item'"):
     # проверяем, что текущая страница - это не страница "All item"
@@ -123,7 +123,7 @@ def test_negative_authorisation_empty_data(web_browser,user_login="",
     with allure.step("Нажатие кнопки 'Войти'"):
     # нажимаем кнопку "Войти"
         page.login_btn.click()
-    time.sleep(1)
+    # page.form_error.wait_to_be_visible()
 
     with allure.step("Проверка: текущая страница - не 'All item'"):
     # проверяем, что текущая страница - это не страница "All item"
@@ -149,7 +149,7 @@ def test_authorisation_glitch_user(web_browser,user_login="performance_glitch_us
     with allure.step("Нажатие кнопки 'Войти'"):
     # нажимаем кнопку "Войти"
         page.login_btn.click()
-    time.sleep(10)
+    # page.app_logo.wait_to_be_visible()
 
     with (allure.step("Проверка: текущая страница - 'All item'")):
     # проверяем, что текущая страница - это страница "All item"

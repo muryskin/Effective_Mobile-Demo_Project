@@ -36,6 +36,18 @@ class WebElement(object):
 
         return element
 
+    def wait_to_be_visible(self, timeout=1, check_visibility=True):
+        element = None
+
+        try:
+            element = WebDriverWait(self._web_driver, timeout).until(
+                EC.visibility_of_element_located(self._locator)
+            )
+        except:
+            print(colored('Element not visible!', 'red'))
+
+        return element
+
     def wait_to_be_clickable(self, timeout=1, check_visibility=True):
         """ Wait until the element will be ready for click. """
 
@@ -75,34 +87,34 @@ class WebElement(object):
 
         return False
 
-    def wait_until_not_visible(self, timeout=1):
-
-        element = None
-
-        try:
-            element = WebDriverWait(self._web_driver, timeout).until(
-                EC.visibility_of_element_located(self._locator)
-            )
-        except:
-            print(colored('Element not visible!', 'red'))
-
-        if element:
-            js = ('return (!(arguments[0].offsetParent === null) && '
-                  '!(window.getComputedStyle(arguments[0]) === "none") &&'
-                  'arguments[0].offsetWidth > 0 && arguments[0].offsetHeight > 0'
-                  ');')
-            visibility = self._web_driver.execute_script(js, element)
-            iteration = 0
-
-            while not visibility and iteration < 10:
-                time.sleep(0.5)
-
-                iteration += 1
-
-                visibility = self._web_driver.execute_script(js, element)
-                print('Element {0} visibility: {1}'.format(self._locator, visibility))
-
-        return element
+    # def wait_until_not_visible(self, timeout=1):
+    #
+    #     element = None
+    #
+    #     try:
+    #         element = WebDriverWait(self._web_driver, timeout).until(
+    #             EC.visibility_of_element_located(self._locator)
+    #         )
+    #     except:
+    #         print(colored('Element not visible!', 'red'))
+    #
+    #     if element:
+    #         js = ('return (!(arguments[0].offsetParent === null) && '
+    #               '!(window.getComputedStyle(arguments[0]) === "none") &&'
+    #               'arguments[0].offsetWidth > 0 && arguments[0].offsetHeight > 0'
+    #               ');')
+    #         visibility = self._web_driver.execute_script(js, element)
+    #         iteration = 0
+    #
+    #         while not visibility and iteration < 10:
+    #             time.sleep(0.5)
+    #
+    #             iteration += 1
+    #
+    #             visibility = self._web_driver.execute_script(js, element)
+    #             print('Element {0} visibility: {1}'.format(self._locator, visibility))
+    #
+    #     return element
 
     def send_keys(self, keys, wait=2):
         """ Send keys to the element. """
